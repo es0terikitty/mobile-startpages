@@ -4,8 +4,8 @@
   "description": "mobile startpage",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#070a12",
-  "theme_color": "#070a12",
+  "background_color": "#0a0714",
+  "theme_color": "#0a0714",
   "icons": [
     {
       "src": "android-chrome-192x192.png",

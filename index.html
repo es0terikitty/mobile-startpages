@@ -7,7 +7,7 @@
     <title>home</title>
     <link rel="icon" href="favicon.ico">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#070a12">
+    <meta name="theme-color" content="#0a0714">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="style.css">
@@ -15,33 +15,73 @@
 
 <body>
     <div class="container">
-        <div class="head">
-            <p>> cd /home/mobile_<span class="blinking">█</span></p>
+        <div class="art">
+            <img src="gif-blink.gif" alt="blink gif" />
         </div>
 
-        <div class="grid">
-            <a class="tile" href="https://x.com">
-                <span class="label">x</span>
-                <span class="arrow">→</span>
-            </a>
-            <a class="tile" href="https://github.com">
-                <span class="label">github</span>
-                <span class="arrow">→</span>
-            </a>
-            <a class="tile" href="https://es0terikitty.github.io">
-                <span class="label">home</span>
-                <span class="arrow">→</span>
-            </a>
-            <a class="tile" href="https://pomofocus.io">
-                <span class="label">focus</span>
-                <span class="arrow">→</span>
-            </a>
+        <div class="time">
+            <p id="clock">--:--</p>
+            <p id="date">---</p>
         </div>
 
-        <div class="foot">
-            <p>tap to go somewhere<span class="cursor">_</span></p>
+        <div class="shortcuts">
+            <p class="label">shortcuts</p>
+            <a class="shortcut" href="https://x.com"><span>x.com</span><span class="arrow">→</span></a>
+            <a class="shortcut" href="https://youshows.org"><span>youshows.org</span><span class="arrow">→</span></a>
+            <a class="shortcut" href="https://reanime.to"><span>reanime.to</span><span class="arrow">→</span></a>
+            <a class="shortcut" href="https://everythingmoe.com"><span>everythingmoe.com</span><span class="arrow">→</span></a>
         </div>
+
+        <form class="search" id="search-form">
+            <input type="text" id="search-input" placeholder="search google..." autocomplete="off" autofocus />
+        </form>
     </div>
+
+    <script>
+        const bangs = {
+            '@dd': 'https://duckduckgo.com/?q=',
+            '@ss': 'https://www.startpage.com/sp/search?query=',
+            '@yt': 'https://www.youtube.com/results?search_query=',
+            '@rd': 'https://www.reddit.com/search/?q='
+        };
+
+        const input = document.getElementById('search-input');
+
+        document.getElementById('search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = input.value.trim();
+            if (!query) return;
+
+            let url = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+            for (const [bang, base] of Object.entries(bangs)) {
+                if (query === bang) {
+                    url = base;
+                    break;
+                }
+                if (query.startsWith(bang + ' ')) {
+                    const rest = query.slice(bang.length).trim();
+                    url = base + encodeURIComponent(rest);
+                    break;
+                }
+            }
+
+            input.value = '';
+            window.location.href = url;
+        });
+
+        const clockEl = document.getElementById('clock');
+        const dateEl = document.getElementById('date');
+        const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+        const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+        function tick() {
+            const d = new Date();
+            const p = n => String(n).padStart(2, '0');
+            clockEl.textContent = p(d.getHours()) + ':' + p(d.getMinutes());
+            dateEl.textContent = days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()];
+        }
+        tick();
+        setInterval(tick, 10000);
+    </script>
 </body>
 
 </html>
