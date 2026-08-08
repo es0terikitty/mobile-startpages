@@ -26,7 +26,27 @@
   --accent: #5e44de;
   --accent-bright: #8a76f2;
   --accent-soft: #39299e;
+  --glow-bg: rgba(94, 68, 222, 0.12);
+  --glow-art: rgba(94, 68, 222, 0.25);
+  --glow-focus: rgba(94, 68, 222, 0.18);
   --font-mono: "Iosevka NF", ui-monospace, "Fira Code", monospace;
+}
+
+[data-theme="head"] {
+  --bg: #0d1a11;
+  --bg-panel: #142118;
+  --bg-panel-alt: #1d3226;
+  --border: #2a4436;
+  --border-strong: #8fcfc3;
+  --fg: #dff1ea;
+  --fg-dim: #a3c2b6;
+  --fg-muted: #6b8879;
+  --accent: #8fcfc3;
+  --accent-bright: #c4ebe8;
+  --accent-soft: #2b4a3a;
+  --glow-bg: rgba(143, 207, 195, 0.1);
+  --glow-art: rgba(143, 207, 195, 0.2);
+  --glow-focus: rgba(143, 207, 195, 0.15);
 }
 
 * {
@@ -44,7 +64,7 @@ html, body {
 
 body {
   background:
-    radial-gradient(circle at 50% 0%, rgba(94, 68, 222, 0.12), transparent 55%),
+    radial-gradient(circle at 50% 0%, var(--glow-bg), transparent 55%),
     var(--bg);
 }
 
@@ -68,7 +88,7 @@ body {
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
-  box-shadow: 0 0 40px rgba(94, 68, 222, 0.25);
+  box-shadow: 0 0 40px var(--glow-art);
 }
 
 .art img {
@@ -177,7 +197,7 @@ body {
 
 .search input:focus {
   border-color: var(--border-strong);
-  box-shadow: 0 0 0 3px rgba(94, 68, 222, 0.18);
+  box-shadow: 0 0 0 3px var(--glow-focus);
 }
 
 @media (prefers-reduced-motion: reduce) {

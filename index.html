@@ -11,12 +11,24 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="style.css">
+    <script>
+        (function() {
+            var themes = [
+                { id: 'blink', img: 'gif-blink.gif', theme: 'blink', color: '#0a0714' },
+                { id: 'head', img: 'head.jpg', theme: 'head', color: '#0d1a11' }
+            ];
+            var pick = themes[Math.floor(Math.random() * themes.length)];
+            document.documentElement.setAttribute('data-theme', pick.theme);
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', pick.color);
+            window.__artSrc = pick.img;
+        })();
+    </script>
 </head>
 
 <body>
     <div class="container">
         <div class="art">
-            <img src="gif-blink.gif" alt="blink gif" />
+            <img src="gif-blink.gif" alt="blink gif" id="art" />
         </div>
 
         <div class="time">
@@ -46,6 +58,10 @@
         };
 
         const input = document.getElementById('search-input');
+
+        if (window.__artSrc) {
+            document.getElementById('art').src = window.__artSrc;
+        }
 
         document.getElementById('search-form').addEventListener('submit', function(e) {
             e.preventDefault();
