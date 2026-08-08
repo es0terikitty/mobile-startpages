@@ -91,19 +91,10 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.shortcuts .label {
-  font-size: 12px;
-  margin: 0 0 8px;
-  color: var(--fg-muted);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
 .shortcut {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 14px;
   padding: 12px 14px;
   border-left: 3px solid transparent;
   color: var(--fg-dim);
@@ -120,26 +111,39 @@ body {
   color: var(--fg);
 }
 
-.shortcut .arrow {
-  font-size: 18px;
+.shortcut .ico {
+  font-style: normal;
+  font-size: 20px;
   color: var(--accent-bright);
   transition: transform 0.15s;
 }
 
-.shortcut:hover .arrow,
-.shortcut:active .arrow {
-  transform: translateX(4px);
+.shortcut:hover .ico,
+.shortcut:active .ico {
+  transform: translateX(3px);
 }
 
 /* ── search bar ── */
 .search {
+  position: relative;
   width: 100%;
   max-width: 400px;
 }
 
+.search .search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-style: normal;
+  font-size: 17px;
+  color: var(--fg-muted);
+  pointer-events: none;
+}
+
 .search input {
   width: 100%;
-  padding: 14px 18px;
+  padding: 14px 18px 14px 46px;
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -147,7 +151,7 @@ body {
   font-family: var(--font-mono);
   font-size: 16px;
   outline: none;
-  text-align: center;
+  text-align: left;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
@@ -162,7 +166,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .shortcut,
-  .shortcut .arrow,
+  .shortcut .ico,
   .search input {
     transition: none;
   }
