@@ -60,6 +60,7 @@ html, body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-mono);
+  perspective: 1200px;
 }
 
 body {
@@ -79,6 +80,16 @@ body {
   padding: 32px 24px calc(24px + env(safe-area-inset-bottom));
   max-width: 520px;
   margin: 0 auto;
+  animation: swing-in-top-fwd 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@-webkit-keyframes swing-in-top-fwd {
+  0% { -webkit-transform: rotateX(-100deg); transform: rotateX(-100deg); -webkit-transform-origin: top; transform-origin: top; opacity: 0; }
+  100% { -webkit-transform: rotateX(0deg); transform: rotateX(0deg); -webkit-transform-origin: top; transform-origin: top; opacity: 1; }
+}
+@keyframes swing-in-top-fwd {
+  0% { -webkit-transform: rotateX(-100deg); transform: rotateX(-100deg); -webkit-transform-origin: top; transform-origin: top; opacity: 0; }
+  100% { -webkit-transform: rotateX(0deg); transform: rotateX(0deg); -webkit-transform-origin: top; transform-origin: top; opacity: 1; }
 }
 
 /* ── art / gif ── */
