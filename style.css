@@ -148,7 +148,7 @@ body {
   font-size: clamp(16px, 4.5vw, 19px);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.2s ease;
 }
 
 .shortcut:hover,
@@ -156,6 +156,7 @@ body {
   border-left-color: var(--border-strong);
   background: var(--bg-panel-alt);
   color: var(--fg);
+  transform: scale(1.05);
 }
 
 .shortcut .ico {
