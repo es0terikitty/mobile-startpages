@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Iosevka NF";
+  src: url("fonts/IosevkaNerdFontMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Iosevka NF";
+  src: url("fonts/IosevkaNerdFontMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #0a0714;
   --bg-panel: #141024;
@@ -10,7 +26,7 @@
   --accent: #5e44de;
   --accent-bright: #8a76f2;
   --accent-soft: #39299e;
-  --font-mono: "MapleMono", "Maple Mono NF", ui-monospace, "Fira Code", monospace;
+  --font-mono: "Iosevka NF", ui-monospace, "Fira Code", monospace;
 }
 
 * {
