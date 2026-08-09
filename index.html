@@ -15,7 +15,9 @@
         (function() {
             var themes = [
                 { id: 'blink', img: 'gif-blink.gif', theme: 'blink', color: '#0a0714' },
-                { id: 'head', img: 'head.jpg', theme: 'head', color: '#0d1a11' }
+                { id: 'head', img: 'head.jpg', theme: 'head', color: '#0d1a11' },
+                { id: 'red', img: 'red.jpg', theme: 'red', color: '#211f22' },
+                { id: 'blue', img: 'blue.jpg', theme: 'blue', color: '#141b33' }
             ];
             var pick = themes[Math.floor(Math.random() * themes.length)];
             document.documentElement.setAttribute('data-theme', pick.theme);
